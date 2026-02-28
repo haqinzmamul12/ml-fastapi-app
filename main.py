@@ -15,3 +15,12 @@ def health():
 def predict(data: InputData):
     result = data.feature1 * 2 + data.feature2
     return {"prediction": result}
+
+
+@app.get("/model-info")
+def model_info():
+    return {
+        "model_name": "demo-model",
+        "version": "1.0",
+        "accuracy": 0.91
+    }
