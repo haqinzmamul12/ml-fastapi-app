@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from typing import List
 
 app = FastAPI()
 
@@ -35,3 +36,11 @@ def model_metrics():
         "f1_score": 0.88,
         "roc_auc": 0.92
     }
+
+@app.post("/predict-batch")
+def predict_batch(data: List[InputData]):
+    results = []
+    for item in data:
+        result = item.feature1 * 5 + item.feature2
+        results.append({"prediction": result})
+    return {"results": results}
