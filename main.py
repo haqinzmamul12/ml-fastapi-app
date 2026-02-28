@@ -13,7 +13,7 @@ def health():
 
 @app.post("/predict")
 def predict(data: InputData):
-    result = data.feature1 * 2 + data.feature2
+    result = data.feature1 * 3 + data.feature2
     return {"prediction": result}
 
 
