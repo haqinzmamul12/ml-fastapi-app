@@ -14,6 +14,7 @@ def health():
 @app.post("/predict")
 def predict(data: InputData):
     result = data.feature1 * 3 + data.feature2
+    print(f"Prediction requested: {data}")   # 👈 new logging
     return {"prediction": result}
 
 
@@ -24,3 +25,4 @@ def model_info():
         "version": "1.0",
         "accuracy": 0.91
     }
+
